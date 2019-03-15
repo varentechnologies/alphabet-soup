@@ -27,7 +27,7 @@ ABC
 AEI
 ```
 
-You may assume that the input files are correctly formatted. Error handling for invalid input files may be ommitted.
+You may assume that the input files are correctly formatted. Error handling for invalid input files may be omitted.
 
 ### Output Format
 The output will specify the word found, along with the indices specifying where the beginning and ending characters of the word are located in the grid. A single space character will separate the word from the beginning and ending indices. The order of the words in the output should remain the same as the order of the words specified in the input file. The program will output to screen or console (and not to a file). 
