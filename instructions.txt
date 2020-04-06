@@ -1,0 +1,7 @@
+Alphabet Soup Code Challenge
+by Mark Bamundo
+
+To complete this challenge, I used nodejs.
+
+The intended run configuration is through the command line:
+> node wordsearch.js /path/to/search/file
