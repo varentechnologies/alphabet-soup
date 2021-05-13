@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -32,6 +34,8 @@ import org.springframework.test.context.ActiveProfiles;
 //@ComponentScan
 class AlphabetApplicationTests {
 
+	Logger log = LogManager.getLogger(AlphabetApplicationTests.class);
+	
 	@Autowired
 	private Setup setup;
 //	
@@ -56,6 +60,8 @@ class AlphabetApplicationTests {
 //	    HELLO 0:0 4:4
 //	    GOOD 4:0 4:3
 //	    BYE 1:3 1:1
+		
+		log.info("this is ok too");
 
 
 		assertEquals("0:0 4:4", this.setup.answerMap.get("HELLO"));

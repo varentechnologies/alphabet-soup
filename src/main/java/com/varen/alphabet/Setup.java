@@ -11,17 +11,36 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
+
+
 @Service 
+//@Slf4j
 public class Setup {
+
+//	Logger log = LoggerFactory.getLogger(Setup.class);
+	Logger log = LogManager.getLogger(Setup.class);
 
 	
 	public Map<String, String> answerMap = new HashMap<>();
 	
+	/**
+	 * Given a path to a word search file, if the input is valid solve the puzzle
+	 * Steps:
+	 * 1. read file
+	 * 2. validate
+	 * @param filePath
+	 */
 	public void solvePuzzle(String filePath) {
+		
+		log.info("filepath provided: {}", filePath);
 		System.out.println(filePath);
 		List<String> fileContents = readFile(filePath);
 		char[][] d = createMatrix(fileContents); 
@@ -97,6 +116,13 @@ public class Setup {
         return matrix; 
     }
     
+    /** 3 steps:
+     * 1. find first letter.
+     * 2. find direction.
+     * 3. match rest of word (or continue)
+     * @param word
+     * @param matrix
+     */
     private void findWordInMatrix(char[] word, char[][] matrix) {
     	
     	for (char w : word) {
