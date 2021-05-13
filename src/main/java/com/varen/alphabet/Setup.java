@@ -11,6 +11,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 @Service 
@@ -18,6 +20,18 @@ public class Setup {
 
 	
 	public Map<String, String> answerMap = new HashMap<>();
+	
+	public void solvePuzzle(String filePath) {
+		System.out.println(filePath);
+		List<String> fileContents = readFile(filePath);
+		char[][] d = createMatrix(fileContents); 
+		
+        //print answers:
+		
+        for (Map.Entry<String, String> entry : this.answerMap.entrySet()) {
+        	System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+	}
     
     public List<String> readFile(String filePath) {
     	
