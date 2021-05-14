@@ -35,7 +35,7 @@ Additionally, I made use of Spring's `CommandLineRunner`. I might not have used 
 
 I considered the high level steps that were necessary to solve a word search. There is construction of the puzzle, then an algorithm is run for each word you need to find. The algorithm is the same based on all possible (valid) inputs and can be described as follows: Scan the matrix for the first letter of your word and circle the letter looking for the second letter; once you have the second letter you have a direction. The direction should be followed until we have a match or discover that we do not. I broke the problem down into functions describing each of these steps. This practice helps create readable and maintainable code that is easier for others to follow and modify if necessary. 
 
-## Gotchas and Special Notes
+## Special Notes
 
 Because the ReadMe states that we can assume valid input, much work is saved in avoiding validation and handling edge cases. Presumably valid input means all the input words can be found in the grid, but I made a special note for the user if the word is not in the grid. Using a larger grid allows one to examine issues of scale. The running time of the algorithm can be described as O(x * y), where x and y are the number of rows and columns. The runtime is dominated by the size of the matrix; the number of matches expected roughly aligns with the normal distribution of english letters. Each first letter match requires up to eight direction searches. Each matching direction requires up to the full path of the word to be searched to be examined. For practical problems the word length is small as is the matrix, so the running time is not a significant factor. Memory use is not significant enough to warrant explicit discussion. 
 
