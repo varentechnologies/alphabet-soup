@@ -37,10 +37,9 @@ I considered the high level steps that were necessary to solve a word search. Th
 
 ## Gotchas and Special Notes
 
-Because the ReadMe states that we can assume valid input, much work is saved in avoiding validation and handling edge cases. Presumably valid input means all the input words can be found in the grid, but I made a special note for the user if the word is not in the grid. Using a larger grid allows one to examine issues of scale. The running time of the algorithm can be described as O(N) where N = x * y, where x and y are the rows and columns. The 
+Because the ReadMe states that we can assume valid input, much work is saved in avoiding validation and handling edge cases. Presumably valid input means all the input words can be found in the grid, but I made a special note for the user if the word is not in the grid. Using a larger grid allows one to examine issues of scale. The running time of the algorithm can be described as O(x * y * wl), where x and y are the number of rows and columns and wl is the word length. Each first letter match requires up to eight direction searches. Each matching direction requires up to the full path of the word to be searched to be examined. For practical problems wl is small as is the matrix, so the running time is not a significant factor. 
 
+Finding my own input helped to uncover the issue that more than one matching direction may exist. I expect to program to work well on a larger input and would be curious to see how large the grid could be before we experience noticable delays. 
 
-
-
-I decided to provide them as an example, but seeing that validation was not required, I did not think extensive unit tests were appropriate either. The integration tests do not use assertions, as I normally would.
+RE: Unit Tests. I decided to provide integration tests as an example but to keep them to a minimum when I considered that validation was not required. I presumed extensive unit tests were also not appropriate. The integration tests do not use assertions, as I normally would.
 
