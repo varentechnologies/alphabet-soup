@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Profile;
 public class AlphabetApplication {
 
 	@Autowired
-	Setup setup;
+	WorkSearchService wordSearch;
 	
 //    @Override
 //    public void run(String...args) throws Exception {
@@ -69,15 +69,16 @@ public class AlphabetApplication {
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 
-			System.out.println(args[0]);
-			List<String> fileContents = setup.readFile(args[0]);
-			char[][] d = setup.createMatrix(fileContents); 
-			
-	        //print answers:
-			
-	        for (Map.Entry<String, String> entry : setup.answerMap.entrySet()) {
-	        	System.out.println(entry.getKey() + " " + entry.getValue());
-	        }
+			wordSearch.solvePuzzle(args[0]);
+//			System.out.println(args[0]);
+//			List<String> fileContents = wordSearch.readFile(args[0]);
+//			char[][] d = wordSearch.createMatrix(fileContents); 
+//			
+//	        //print answers:
+//			
+//	        for (Map.Entry<String, String> entry : wordSearch.answerMap.entrySet()) {
+//	        	System.out.println(entry.getKey() + " " + entry.getValue());
+//	        }
 		};
 	}
 
