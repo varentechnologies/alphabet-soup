@@ -17,4 +17,10 @@ Run the program as follows:
 The four inputs represent: 1) the provided input, 2) a larger input I found online, 3) a matrix with more rows than columns, and 4)
 a matrix with more columns than rows. 
 
-To repeat, the word search works. This is not something I would turn in as a complete product, but it works and I had limited time (few hours) before my interview. Thank you. 
+The unit tests are integration tests. I decided to provide them as an example, but seeing that validation was not required, I did not think extensive unit tests were appropriate either. The integration tests do not use assertions, as I normally would. To run the tests and see the output on your screen:
+
+```
+./gradlew clean test --info
+```
+
+
