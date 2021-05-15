@@ -27,13 +27,13 @@ Please see the JavaDocs in the `WordSearchService` for more detailed guidance in
 
 Here I describe the high level design choices and explain important decisions. 
 
-This is a Spring Boot application. Spring Initializr is a convenient mechanism to create much of the necessary boiler plate for an application and to make use of the Spring Framework to handle common tasks. I used the Spring Framework to get started quickly. In particular here, I relied heavily on the application context and annotations to connect the application. Gradle comes along with the template project, and so unit tests and logging. 
+This is a Spring Boot application. Spring Initializr is a convenient mechanism to create much of the necessary boiler plate for an application and to make use of the Spring Framework to handle common tasks. I used the Spring Framework to get started quickly. In particular, I relied heavily on Spring's application context and annotations to quickly enable a service, unit testing, and logging. The build tool Gradle is also included in the template project. 
 
-Additionally, I made use of Spring's `CommandLineRunner`. I might not have used Spring and instead produced a jar file and fed it command line arguments, but the Spring Framework streamlines this process and adds capabilities for ease of development and use. 
+Additionally, I made use of Spring's `CommandLineRunner`to accept command line arguments. The Spring Framework provides a template for many common tasks and adds rich capabilities for ease of development and use. 
 
 ## Logic Design
 
-I considered the high level steps that were necessary to solve a word search. There is construction of the puzzle, then an algorithm is run for each word you need to find. The algorithm is the same based on all possible (valid) inputs and can be described as follows: Scan the matrix for the first letter of your word and circle the letter looking for the second letter; once you have the second letter you have a direction. The direction should be followed until we have a match or discover that we do not. I broke the problem down into functions describing each of these steps. This practice helps create readable and maintainable code that is easier for others to follow and modify if necessary. 
+I considered the high level steps that were necessary to solve a word search. First is construction of the puzzle and then an algorithm is run for each word to be found. The algorithm is the same based on all possible (valid) inputs and can be described as follows: Scan the matrix for the first letter of your word and circle the letter looking for the second letter; once you have the second letter you have a direction. The direction should be followed until we have a match or discover that we do not. I broke the problem down into functions describing each of these steps. This practice helps create readable and maintainable code that is easier for others to follow and modify if necessary. 
 
 ## Special Notes
 
