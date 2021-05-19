@@ -1,3 +1,7 @@
+# Submission Details
+Applicant: Philip Buonomo
+This solution should solve for a Grid without assuming it is a square, provided that the first line of the input file specifies (Number of Rows)x(Number of Columns)
+
 # Alphabet Soup
 
 > You have been contracted from a newspaper tasked with the job of providing an answer key to their word search for the Sunday print. The newspaper's word search is a traditional game consisting of a grid of characters in which a selection of words have been hidden. You are provided with the list of words that have been hidden and must find the words within the grid of characters. Fork this repository, build your program in the language of your choice, then submit a pull request with your code. 
