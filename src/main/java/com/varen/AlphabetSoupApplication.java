@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,12 +21,12 @@ public class AlphabetSoupApplication {
 				new InputStreamReader(new FileInputStream(new File(fileUrl)), fileCharset))) {
 
 			List<String> inputLines = new ArrayList<String>();
-
+			List<String> foundResults = new ArrayList<String>();
 			// Map is keyed by length of words contained in the collection held by the value
 			HashMap<Integer, List<String>> hiddenWordsMap = new HashMap<Integer, List<String>>();
 
 			bufferedFileReader.lines().forEach((String line) -> {
-				inputLines.add(line);
+				inputLines.add(line.replaceAll("[^A-Za-z0-9]", "").toUpperCase());
 			});
 
 			String gridDimensions = inputLines.get(0);
@@ -47,12 +48,35 @@ public class AlphabetSoupApplication {
 			}));
 
 			// Our word scramble grid begins at index (line number) 1
-			IntStream.range(1, numberOfRows + 1).forEach((i -> {
-				String row = inputLines.get(i);
-			}));
+			IntStream.range(1, numberOfRows + 1).forEach((rowIndex -> {
+				String row = inputLines.get(rowIndex);
+				hiddenWordsMap.keySet().stream().filter((Integer wordLength) -> {
+					return wordLength.intValue() <= row.length();
+				}).forEach((Integer wordLength) -> {
+					List<String> hiddenWords = hiddenWordsMap.get(wordLength);
+					List<String> wordsFound = new ArrayList<String>();
+					hiddenWords.forEach((String word) -> {
+						int foundAt = row.indexOf(word);
+						int foundAtBackwards = foundAt >= 0 ? -1
+								: row.indexOf(new StringBuilder(word).reverse().toString());
 
-			hiddenWordsMap.keySet().forEach(
-					(i) -> System.out.println("Word size: " + i + " / Count = " + hiddenWordsMap.get(i).size()));
+						if (foundAt >= 0) {
+							wordsFound.add(word);
+							foundResults.add(MessageFormat.format("{0} {1}:{2} {1}:{3}", word, rowIndex - 1,
+									foundAt, foundAt + word.length() - 1));
+						} else if (foundAtBackwards >= 0) {
+							wordsFound.add(word);
+							foundResults.add(MessageFormat.format("{0} {1}:{3} {1}:{2}", word, rowIndex - 1,
+									foundAtBackwards, foundAtBackwards + word.length() - 1));
+						}
+					});
+					
+					// remove words found once - remove if this assumption doesn't hold
+					hiddenWords.removeAll(foundResults);
+				});
+			}));
+			
+			foundResults.forEach( (s) -> { System.out.println(s); } );
 		}
 	}
 }
