@@ -1,0 +1,19 @@
+# exclude target except runnable jar
+/target/*
+!/target/alphabet-soup-*-jar-with-dependencies.jar
+
+# eclipse specific
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
