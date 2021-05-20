@@ -26,7 +26,7 @@ public class AlphabetSoupPuzzle {
 			throws UnsupportedEncodingException, FileNotFoundException, IOException {
 		this.fileUrl = fileUrl;
 		this.fileCharset = fileCharset;
-
+		
 		readInputFile();
 
 		/*
@@ -263,6 +263,7 @@ public class AlphabetSoupPuzzle {
 
 	protected static AlphabetSoupPuzzle build(String fileUrl, String fileCharset)
 			throws UnsupportedEncodingException, FileNotFoundException, IOException {
+
 		return new AlphabetSoupPuzzle(fileUrl, fileCharset);
 	}
 

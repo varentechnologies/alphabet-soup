@@ -8,6 +8,15 @@
 	<packaging>jar</packaging>
 	<name>alphabet-soup</name>
 	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<targetPath>${project.build.directory}</targetPath>
+				<includes>
+					<include>**/*.input</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
