@@ -1,3 +1,16 @@
+# Submission Details
+Applicant: Philip Buonomo
+To run the application with no user interaction, the input file named alphabet-soup.input should be in the same directory as the jar file:
+ > java -jar alphabet-soup-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+
+The application can also take a specific file location and charset as an input :
+ > java -jar alphabet-soup-0.0.1-SNAPSHOT-jar-with-dependencies.jar  "./alphabet-soup-very-complex.input" "UTF-8"
+
+ - This solution should solve for a Grid without assuming it is a square, provided that the first line of the input file specifies (Number of Rows)x(Number of Columns)
+ - This solution assumes that hidden words are not duplicated in the Grid 
+ - This solution assumes that single character words are not valid inputs
+ - This solution assumes that all hidden words must be contained with in the grid, based on the statement: 
+ > ... Error handling for invalid input files may be omitted.
 # Alphabet Soup
 
 > You have been contracted from a newspaper tasked with the job of providing an answer key to their word search for the Sunday print. The newspaper's word search is a traditional game consisting of a grid of characters in which a selection of words have been hidden. You are provided with the list of words that have been hidden and must find the words within the grid of characters. Fork this repository, build your program in the language of your choice, then submit a pull request with your code. 
