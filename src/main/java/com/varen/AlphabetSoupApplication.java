@@ -20,10 +20,8 @@ public class AlphabetSoupApplication {
 		String path = AlphabetSoupApplication.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 		String jarPath = URLDecoder.decode(path, "UTF-8");
 		String defaultFilePath = jarPath.endsWith(".jar")
-				? new File(jarPath).getParent() + System.getProperty("file.separator") + "aphabet-soup.input"
-				: jarPath + System.getProperty("file.separator") + "aphabet-soup.input";
-
-		System.out.println(defaultFilePath);
+				? new File(jarPath).getParent() + System.getProperty("file.separator") + "alphabet-soup.input"
+				: jarPath + System.getProperty("file.separator") + "alphabet-soup.input";
 
 		String fileUrl = args.length >= 1 ? args[0] : defaultFilePath;
 		String fileCharset = args.length >= 2 ? args[1] : "Cp1252";

@@ -1,5 +1,11 @@
 # Submission Details
 Applicant: Philip Buonomo
+To run the application with no user interaction, the input file named alphabet-soup.input should be in the same directory as the jar file:
+ > java -jar alphabet-soup-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+
+The application can also take a specific file location and charset as an input :
+ > java -jar alphabet-soup-0.0.1-SNAPSHOT-jar-with-dependencies.jar  "./alphabet-soup-very-complex.input" "UTF-8"
+
  - This solution should solve for a Grid without assuming it is a square, provided that the first line of the input file specifies (Number of Rows)x(Number of Columns)
  - This solution assumes that hidden words are not duplicated in the Grid 
  - This solution assumes that single character words are not valid inputs
